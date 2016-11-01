@@ -1,1 +1,10 @@
-/* This file is for your main application css. */
+.footer {
+  background: linear-gradient(to bottom, #66afe9, #2e6da4);
+  height: 60px;
+  padding-top: 20px;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 15px;
+}

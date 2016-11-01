@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h2>About DevQuotes</h2>
+  <p class="lead">A small project to learn Elixir and Phoenix</p>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Resources</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/renuo/dev_quotes/">GitHub</a>
+      </li>
+      <li>
+        <a href="https://docs.google.com/spreadsheets/u/1/d/1XLsqvTREer59ij1EiZwvqvEuPK3ScADWOzfXaYpzpXI/edit?usp=drive_web">Requirements</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/drive/folders/0B0bYOGoTlrA1T05yVTA1bV9qeWM?usp=sharing">Findings</a>
+      </li>
+    </ul>
+  </div>
+</div>
