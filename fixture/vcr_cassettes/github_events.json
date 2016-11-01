@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/lukaselmer/events"
+    },
+    "response": {
+      "body": "[{\"id\":\"4798400087\",\"type\":\"WatchEvent\",\"actor\":{\"id\":326935,\"login\":\"lukaselmer\",\"display_login\":\"lukaselmer\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/lukaselmer\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/326935?\"},\"repo\":{\"id\":13218759,\"name\":\"parroty/exvcr\",\"url\":\"https://api.github.com/repos/parroty/exvcr\"},\"payload\":{\"action\":\"started\"},\"public\":true,\"created_at\":\"2016-11-01T15:11:19Z\"},{\"id\":\"4798079700\",\"type\":\"DeleteEvent\",\"actor\":{\"id\":326935,\"login\":\"lukaselmer\",\"display_login\":\"lukaselmer\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/lukaselmer\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/326935?\"},\"repo\":{\"id\":72464627,\"name\":\"renuo/dev_quotes\",\"url\":\"https://api.github.com/repos/renuo/dev_quotes\"},\"payload\":{\"ref\":\"feature/addict\",\"ref_type\":\"branch\",\"pusher_type\":\"user\"},\"public\":true,\"created_at\":\"2016-11-01T14:21:44Z\",\"org\":{\"id\":1863488,\"login\":\"renuo\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/orgs/renuo\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/1863488?\"}},{\"id\":\"4798079471\",\"type\":\"PushEvent\",\"actor\":{\"id\":326935,\"login\":\"lukaselmer\",\"display_login\":\"lukaselmer\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/lukaselmer\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/326935?\"},\"repo\":{\"id\":72464627,\"name\":\"renuo/dev_quotes\",\"url\":\"https://api.github.com/repos/renuo/dev_quotes\"},\"payload\":{\"push_id\":1379012078,\"size\":9,\"distinct_size\":1,\"ref\":\"refs/heads/develop\",\"head\":\"6ef6acd76d46f1828144ca064769257e72c72478\",\"before\":\"e3a1cc66b008eaa0ea277f94f77e86b7536519e5\",\"commits\":[{\"sha\":\"d4c61af0a0a0fca622e69113144024a8fadf1cf2\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Add mixes\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/d4c61af0a0a0fca622e69113144024a8fadf1cf2\"},{\"sha\":\"37cbcd421ea4d461d1baffebf1f98922d465062e\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Generate addict configs\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/37cbcd421ea4d461d1baffebf1f98922d465062e\"},{\"sha\":\"3612f5ea5fa26ecdd2583d01d767f789b719f30e\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Generate opinionated template\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/3612f5ea5fa26ecdd2583d01d767f789b719f30e\"},{\"sha\":\"d052980cb86b7473ae7aff11e0cad016dda2fbed\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Add routes\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/d052980cb86b7473ae7aff11e0cad016dda2fbed\"},{\"sha\":\"4329d9cd84d866fe7ba9fdd8fa8ebb746e302ff1\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Add buttons\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/4329d9cd84d866fe7ba9fdd8fa8ebb746e302ff1\"},{\"sha\":\"e981c5a3d85c54ab4e69ad4ff255cd0da582b87a\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Logout per ajax\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/e981c5a3d85c54ab4e69ad4ff255cd0da582b87a\"},{\"sha\":\"bc400f609366ee1ef40e77a0e2fdbf0e36f50bc1\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Move the routes to the correct place\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/bc400f609366ee1ef40e77a0e2fdbf0e36f50bc1\"},{\"sha\":\"0a93403b09ccde559409397c1f7b9823f2e2b9aa\",\"author\":{\"email\":\"josua.schmid@renuo.ch\",\"name\":\"Josua Schmid\"},\"message\":\"Extract secrets to env\",\"distinct\":false,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/0a93403b09ccde559409397c1f7b9823f2e2b9aa\"},{\"sha\":\"6ef6acd76d46f1828144ca064769257e72c72478\",\"author\":{\"email\":\"lukas.elmer@gmail.com\",\"name\":\"Lukas Elmer\"},\"message\":\"Merge pull request #11 from renuo/feature/addict\\n\\nFeature/addict\",\"distinct\":true,\"url\":\"https://api.github.com/repos/renuo/dev_quotes/commits/6ef6acd76d46f1828144ca064769257e72c72478\"}]},\"public\":true,\"created_at\":\"2016-11-01T14:21:41Z\",\"org\":{\"id\":1863488,\"login\":\"renuo\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/orgs/renuo\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/1863488?\"}}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Tue, 01 Nov 2016 15:30:13 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "77694",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4911",
+        "X-RateLimit-Reset": "1478015205",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "Last-Modified": "Thu, 15 Sep 2016 23:05:32 GMT",
+        "X-Poll-Interval": "60",
+        "X-OAuth-Scopes": "read:gpg_key, read:org, read:public_key, user:email",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/326935/events?page=1>; rel=\"first\", <https://api.github.com/user/326935/events?page=9>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

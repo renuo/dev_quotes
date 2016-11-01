@@ -4,9 +4,11 @@ defmodule QuotesResolver do
   def resolve(data_source) do
     case {data_source.type} do
       {"stackoverflow"} ->
-        StackoverflowResolver.resolve(data_source.data)
+        DevQuotes.StackoverflowAdapter.resolve(data_source.data)
       {"twitter"} ->
-        TwitterResolver.resolve(data_source.data)
+        DevQuotes.TwitterAdapter.resolve(data_source.data)
+      {"github"} ->
+        DevQuotes.GitHubAdapter.latest_event(data_source.data)
     end
   end
 end

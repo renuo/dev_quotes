@@ -12,8 +12,8 @@ ul
     strong Data:
     = @data_source.data
 
-  = for quote <-@quotes[:quotes] do
-    = render "_quote.html", quote: quote
+= for quote <-@quotes[:quotes] do
+  = render "_quote.html", quote: quote
 
 = link "Edit", to: data_source_path(@conn, :edit, @data_source)
 = link "Back", to: data_source_path(@conn, :index)

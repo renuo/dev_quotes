@@ -1,4 +1,4 @@
-defmodule StackoverflowResolver do
+defmodule DevQuotes.StackoverflowAdapter do
   @moduledoc false
 
   def resolve(stackoverflow_id) do
@@ -22,7 +22,7 @@ defmodule StackoverflowResolver do
   defp get(path, params) do
     parse(HTTPotion.get("https://api.stackexchange.com/2.2/#{path}",
         query: Map.merge(%{site: "stackoverflow",
-                           key: Application.get_env(:dev_quotes, :stackoverflow_api_key)},
+                           key: Application.fetch_env!(:dev_quotes, :stackoverflow_api_key)},
                          params)))
   end
 
