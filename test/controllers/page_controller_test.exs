@@ -3,7 +3,7 @@ defmodule DevQuotes.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    assert html_response(conn, 200) =~ "Hello DevQuotes!"
   end
 
   test "GET /about", %{conn: conn} do
