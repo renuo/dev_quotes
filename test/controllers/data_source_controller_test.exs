@@ -1,7 +1,14 @@
 defmodule DevQuotes.DataSourceControllerTest do
-  use DevQuotes.ConnCase
+  use DevQuotes.ConnCase, async: false
+  use ExVCR.Mock, adapter: ExVCR.Adapter.IBrowse
+
+#  setup_all do
+#    # HTTPoison.start
+#    HTTPotion.start
+#  end
 
   alias DevQuotes.DataSource
+
   @valid_attrs %{data: "837638", key: "hello", type: "stackoverflow"}
   @invalid_attrs %{}
 
@@ -26,11 +33,21 @@ defmodule DevQuotes.DataSourceControllerTest do
     assert html_response(conn, 200) =~ "New data source"
   end
 
-  test "shows chosen resource", %{conn: conn} do
-    data_source = Repo.insert! %DataSource{data: "837638", key: "hello", type: "stackoverflow"}
-    conn = get conn, data_source_path(conn, :show, data_source)
-    assert html_response(conn, 200) =~ "Show data source"
+  test "test use_casette with HTTPotion and gzip compression" do
+    use_cassette "api_stackexchange_com" do
+      HTTPotion.start
+      response = :zlib.gunzip(HTTPotion.get("https://api.stackexchange.com/2.2").body)
+      assert response =~ "bad_parameter"
+    end
   end
+
+#  test "shows chosen resource", %{conn: conn} do
+#    use_cassette "stackoverflow_resource" do #, match_requests_on: [:query] do # , match_requests_on: [:query]
+#      data_source = Repo.insert! %DataSource{data: "837638", key: "hello", type: "stackoverflow"}
+#      conn = get conn, data_source_path(conn, :show, data_source)
+#      assert html_response(conn, 200) =~ "Show data source"
+#    end
+#  end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
