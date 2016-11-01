@@ -49,7 +49,8 @@ defmodule DevQuotes.Mixfile do
      {:httpotion, "~> 3.0.2"},
      {:json, "~> 1.0"},
      {:oauth, github: "tim/erlang-oauth"},
-     {:extwitter, "~> 0.6"}]
+     {:extwitter, "~> 0.6"},
+     {:floki, "~> 0.11.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
