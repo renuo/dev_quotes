@@ -1,19 +1,30 @@
 defmodule DevQuotes.BlogSourceAdapter do
+  def resolve(username) do
+    [%{ icon: "", body: random_text(username) }]
+  end
+
   def random_text(blog_url) do
     page_body = html(blog_url)
 
     #articles = get_articles(page_body)
     #links = get_local_links(page_body, blog_url)
 
-    text = Floki.find(page_body, "li")
+    text = Floki.find(page_body, "article")
     |> Floki.raw_html
-    |> HtmlSanitizeEx.strip_tags
+    |> HtmlSanitizeEx.basic_html
 
+    if String.strip(text) == "" do
+      HtmlSanitizeEx.basic_html(page_body)
+    else
+      text
+    end
+
+    #text
     # TODO: out of bound
-    start_point = :rand.uniform(String.length(text)) - 50
-    end_point = start_point + 50
+    #start_point = :rand.uniform(String.length(text)) - 50
+    #end_point = start_point + 50
 
-    String.slice(text, start_point..end_point)
+    #String.slice(text, start_point..end_point)
   end
 
   def html(blog_url) do
