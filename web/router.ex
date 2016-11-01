@@ -18,6 +18,8 @@ defmodule DevQuotes.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
     get "/about", PageController, :about
     resources "/data_sources", DataSourceController
   end
