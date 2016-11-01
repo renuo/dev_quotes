@@ -9,6 +9,10 @@
 
     <title>Hello DevQuotes!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -17,7 +21,7 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <%= if Addict.Helper.is_logged_in(@conn) do %>
-              <li><%= link "Logout", to: logout_path(@conn, :logout), method: :delete %></li>
+              <li><a href="#" class='logout-link'>Logout</a></li>
             <% else %>
               <li><%= link "Register", to: register_path(@conn, :register) %></li>
               <li><%= link "Login", to: login_path(@conn, :login) %></li>
@@ -45,5 +49,11 @@
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+    <script type='text/javascript'>
+      $('.logout-link').click(function() {
+        $.ajax({url:"/logout", method: "DELETE"}).done(function() { window.location.reload(); });
+      });
+    </script>
   </body>
 </html>
