@@ -3,13 +3,16 @@ defmodule DevQuotes.GitHubAdapter do
     Tentacat.Users.find(username, client) |> Map.get("email")
   end
 
+  def resolve(username) do
+    [%{icon: "https://goo.gl/AK5zl7", body: latest_event(username)}]
+  end
+
   def latest_event(username) do
     events = Tentacat.Users.Events.list(username, client)
     event = Enum.find(events, fn(x) -> convertable_event?(x) end)
 
     repo = event["repo"]["name"]
-    body = "#{username} pushed to #{repo}, see <a href='#{extract_link(event)}'>here</a>"
-    %{"quotes": [%{icon: "https://goo.gl/AK5zl7", body: body}]}
+    "#{username} pushed to #{repo}, see <a href='#{extract_link(event)}'>here</a>"
   end
 
   defp extract_link(event) do

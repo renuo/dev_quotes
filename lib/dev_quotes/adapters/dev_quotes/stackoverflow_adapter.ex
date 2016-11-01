@@ -2,7 +2,7 @@ defmodule DevQuotes.StackoverflowAdapter do
   @moduledoc false
 
   def resolve(stackoverflow_id) do
-    %{"quotes": questions(stackoverflow_id) ++ answers(stackoverflow_id)}
+    questions(stackoverflow_id) ++ answers(stackoverflow_id)
   end
 
   defp user(stackoverflow_id) do
