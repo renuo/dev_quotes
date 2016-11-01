@@ -18,12 +18,8 @@ defmodule DevQuotes.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", UserController, :index
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
-    get "/users/:id/edit", UserController, :edit
-    patch "/users/:id", UserController, :update
-    put "/users/:id", UserController, :update
     get "/about", PageController, :about
+    resources "/users", UserController, except: [:delete, :new, :create]
     resources "/data_sources", DataSourceController
   end
 

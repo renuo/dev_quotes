@@ -1,5 +1,6 @@
 <div class="jumbotron">
   <h3><%= @user.email %></h3>
+  <%= link "Edit", to: user_path(@conn, :edit, @user.id) %>
 </div>
 
 <%= for quote <- @user.quotes do %>
