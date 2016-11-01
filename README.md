@@ -16,6 +16,14 @@ Install the prerequisites to have a running *elixir* installation:
 
 To start your Phoenix app:
 
+```
+bin/setup
+```
+
+You may need to adjust `config/secret.exs`.
+
+Some more explanations:
+
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `npm install`
