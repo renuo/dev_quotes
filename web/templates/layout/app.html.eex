@@ -30,10 +30,10 @@
       </main>
 
     </div>
-    
+
     <footer class="footer">
       <div class="container">
-        <p class="text-muted"><a href="/">Home</a> <a href="/about">About</a></p>
+        <p class="text-muted"><a href="<%= page_path(@conn, :index) %>">Home</a> <a href="<%= page_path(@conn, :about) %>">About</a></p>
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
