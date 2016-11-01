@@ -1,5 +1,6 @@
 defmodule DevQuotes.Router do
   use DevQuotes.Web, :router
+  use Addict.RoutesHelper
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -18,6 +19,10 @@ defmodule DevQuotes.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+  end
+
+  scope "/" do
+    addict :routes
   end
 
   # Other scopes may use custom stacks.

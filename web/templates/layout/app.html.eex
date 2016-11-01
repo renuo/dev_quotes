@@ -9,6 +9,10 @@
 
     <title>Hello DevQuotes!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -16,7 +20,12 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <%= if Addict.Helper.is_logged_in(@conn) do %>
+              <li><a href="#" class='logout-link'>Logout</a></li>
+            <% else %>
+              <li><%= link "Register", to: register_path(@conn, :register) %></li>
+              <li><%= link "Login", to: login_path(@conn, :login) %></li>
+            <% end %>
           </ul>
         </nav>
         <span class="logo"></span>
@@ -40,5 +49,11 @@
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+    <script type='text/javascript'>
+      $('.logout-link').click(function() {
+        $.ajax({url:"/logout", method: "DELETE"}).done(function() { window.location.reload(); });
+      });
+    </script>
   </body>
 </html>
