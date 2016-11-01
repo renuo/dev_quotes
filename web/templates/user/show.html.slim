@@ -1,13 +1,6 @@
 .jumbotron
   h3 = @user.email
   = link "Edit", to: user_path(@conn, :edit, @user.id)
-    
-= for quote <- @user.quotes do
-  .media
-    .media-left
-      img.media-object src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThZ6E3ROljwFW6EMnB5jFQYYSNacooNbx0HLeLPfjyWof6ZH0D"
-    .media-body
-      = render "quote_list_item.html", quote: quote
 
 = for quote <- @quotes do
   = render "_quote.html", quote: quote
