@@ -4,10 +4,6 @@
     <div class="addict modal__form">
       <div class="addict modal__fields">
         <div class="addict field">
-          <input type="text" id="txt-name" class="addict input" required />
-          <label for="txt-name" class="addict label">Name</label>
-        </div>
-        <div class="addict field">
           <input type="text" id="txt-email" class="addict input" required />
           <label for="txt-email" class="addict label">E-mail</label>
         </div>
