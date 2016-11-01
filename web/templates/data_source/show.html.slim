@@ -12,14 +12,8 @@ ul
     strong Data:
     = @data_source.data
 
-  img src="#{@quotes[:user]["profile_image"]}"
-
-
-  = for question <-@quotes[:questions] do
-    = render "_quote.html", icon: "https://goo.gl/NiD4Re", body: question["body"]
-
-  = for answer <- @quotes[:answers] do
-    = render "_quote.html", icon: "https://goo.gl/NiD4Re", body: answer["body"]
+  = for quote <-@quotes[:quotes] do
+    = render "_quote.html", quote: quote
 
 = link "Edit", to: data_source_path(@conn, :edit, @data_source)
 = link "Back", to: data_source_path(@conn, :index)

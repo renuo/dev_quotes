@@ -5,6 +5,8 @@ defmodule QuotesResolver do
     case {data_source.type} do
       {"stackoverflow"} ->
         StackoverflowResolver.resolve(data_source.data)
+      {"twitter"} ->
+        TwitterResolver.resolve(data_source.data)
     end
   end
 end

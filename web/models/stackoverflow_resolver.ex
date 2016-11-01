@@ -2,9 +2,7 @@ defmodule StackoverflowResolver do
   @moduledoc false
 
   def resolve(stackoverflow_id) do
-    %{"user": user(stackoverflow_id),
-      "answers": answers(stackoverflow_id),
-      "questions": questions(stackoverflow_id)}
+    %{"quotes": questions(stackoverflow_id) ++ answers(stackoverflow_id)}
   end
 
   defp user(stackoverflow_id) do
@@ -12,11 +10,13 @@ defmodule StackoverflowResolver do
   end
 
   defp answers(stackoverflow_id) do
-    get("users/#{stackoverflow_id}/answers", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"]
+    get("users/#{stackoverflow_id}/answers", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"] |>
+        Enum.map(fn(answer) -> %{icon: "https://goo.gl/NiD4Re", body: answer["body"]} end)
   end
 
   defp questions(stackoverflow_id) do
-    get("users/#{stackoverflow_id}/questions", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"]
+    get("users/#{stackoverflow_id}/questions", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"] |>
+        Enum.map(fn(question) -> %{icon: "https://goo.gl/NiD4Re", body: question["body"]} end)
   end
 
   defp get(path, params) do
