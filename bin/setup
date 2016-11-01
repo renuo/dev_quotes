@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+
+def run(name, file_which_must_not_exist = nil)
+  unless file_which_must_not_exist && File.exist?(file_which_must_not_exist)
+    puts "== #{name} =="
+    yield
+    puts
+  end
+end
+
+Dir.chdir APP_ROOT do
+  run 'Installing JS dependencies' do
+    system 'npm install'
+  end
+
+  run 'Installing phoenix dependencies' do
+    system 'mix deps.get'
+    system 'mix ecto.create'
+    system 'mix ecto.migrate || echo "no migrations yet"'
+  end
+
+  run 'Creating pre-commit hook link', '.git/hooks/pre-commit' do
+    system 'ln -s ../../bin/check .git/hooks/pre-commit'
+  end
+
+  run('Running checks') { abort('bin/check failed') unless system('bin/check') }
+end
