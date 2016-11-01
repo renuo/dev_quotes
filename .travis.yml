@@ -1,4 +1,8 @@
 language: elixir
+addons:
+  apt:
+    packages:
+    - zsh
 elixir:
   - 1.3.4
 otp_release:

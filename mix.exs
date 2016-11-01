@@ -19,7 +19,7 @@ defmodule DevQuotes.Mixfile do
   def application do
     [mod: {DevQuotes, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpotion]]
+                    :phoenix_ecto, :postgrex, :tentacat, :httpotion]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,6 +39,7 @@ defmodule DevQuotes.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
+     {:tentacat, "~> 0.5"},
      {:addict, "~> 0.3"},
      {:mailgun, github: "chrismccord/mailgun", branch: "master", override: true},
      {:httpotion, "~> 3.0.2"},
