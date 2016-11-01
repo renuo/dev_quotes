@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container main-container">
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
@@ -29,7 +29,16 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-    </div> <!-- /container -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+          <%= link("Home", to: page_path(@conn, :index)) %>
+          <%= link("About", to: page_path(@conn, :about)) %>
+        </p>
+      </div>
+    </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
