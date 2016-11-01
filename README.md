@@ -9,7 +9,7 @@ Checkout the repository:
 
 Install the prerequisites to have a running *elixir* installation:
 
-    homebrew install erlang exenv elixir-build
+    brew install erlang exenv elixir-build
     exenv install
 
 ## Setup
