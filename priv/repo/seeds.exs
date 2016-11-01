@@ -11,7 +11,6 @@
 # and so on) as they will fail if something goes wrong.
 alias DevQuotes.Repo
 alias DevQuotes.User
-alias DevQuotes.Quote
 
   Repo.insert! %User{
     email: "josh1@josh.com",
