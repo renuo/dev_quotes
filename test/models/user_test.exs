@@ -3,7 +3,7 @@ defmodule DevQuotes.UserTest do
 
   alias DevQuotes.User
 
-  @valid_attrs %{encrypted_password: "some content", username: "some content"}
+  @valid_attrs %{encrypted_password: "some content", email: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

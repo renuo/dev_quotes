@@ -2,7 +2,7 @@ defmodule DevQuotes.User do
   use DevQuotes.Web, :model
 
   schema "users" do
-    field :username, :string
+    field :email, :string
     field :encrypted_password, :string
 
     timestamps()
@@ -13,7 +13,7 @@ defmodule DevQuotes.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:username, :encrypted_password])
-    |> validate_required([:username, :encrypted_password])
+    |> cast(params, [:email, :encrypted_password])
+    |> validate_required([:email, :encrypted_password])
   end
 end
