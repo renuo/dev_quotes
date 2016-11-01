@@ -12,7 +12,7 @@ defmodule DevQuotes.UserController do
 
   def show(conn, %{"id" => id}) do
     user = User |> Repo.get!(id) |> Repo.preload([:quotes])
-    render(conn, "show.html", user: user, quotes: QuotesResolver.resolve(user))
+    render(conn, "show.html", user: user)
   end
 
   def edit(conn, %{"id" => id}) do
