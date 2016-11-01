@@ -1,12 +1,11 @@
 defmodule DevQuotes.BlogSourceAdapter do
-  def entries(blog_url) do
+  def random_text(blog_url) do
     page_body = html(blog_url)
-
 
     #articles = get_articles(page_body)
     #links = get_local_links(page_body, blog_url)
 
-    [html(blog_url)]
+    Floki.find(page_body, "li") |> Floki.raw_html |> HtmlSanitizeEx.strip_tags
   end
 
   def html(blog_url) do
@@ -14,7 +13,8 @@ defmodule DevQuotes.BlogSourceAdapter do
   end
 
   def get_articles(html) do
-    Floki.find(html, "article")
+    html
+    |> Floki.find("article")
   end
 
   def get_links(html) do

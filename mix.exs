@@ -50,7 +50,8 @@ defmodule DevQuotes.Mixfile do
      {:json, "~> 1.0"},
      {:oauth, github: "tim/erlang-oauth"},
      {:extwitter, "~> 0.6"},
-     {:floki, "~> 0.11.0"}]
+     {:floki, "~> 0.10.0"},
+     {:html_sanitize_ex, "~> 1.0.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

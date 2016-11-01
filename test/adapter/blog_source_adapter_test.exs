@@ -8,8 +8,8 @@ defmodule DevQuotes.BlogSourceAdapterTest do
     assert BlogSourceAdapter.html(@blog_url) =~ "<title>Fefes Blog</title>"
   end
 
-  test "can parse blog html" do
-    assert length(BlogSourceAdapter.entries(@blog_url)) > 0
+  test "can return text" do
+    assert String.length(BlogSourceAdapter.random_text(@blog_url)) > 0
   end
 
   test "can find articles in html" do
