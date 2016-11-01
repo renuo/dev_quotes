@@ -22,7 +22,7 @@ defmodule DevQuotes.Mixfile do
   def application do
     [mod: {DevQuotes, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpotion, :tentacat]]
+                    :phoenix_ecto, :postgrex, :httpotion, :tentacat, :extwitter]]
   end
 
   # Specifies which paths to compile per environment.
@@ -47,7 +47,9 @@ defmodule DevQuotes.Mixfile do
      {:addict, "~> 0.3"},
      {:mailgun, github: "chrismccord/mailgun", branch: "master", override: true},
      {:httpotion, "~> 3.0.2"},
-     {:json, "~> 1.0"}]
+     {:json, "~> 1.0"},
+     {:oauth, github: "tim/erlang-oauth"},
+     {:extwitter, "~> 0.6"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

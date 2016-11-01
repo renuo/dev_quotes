@@ -8,8 +8,6 @@ defmodule DevQuotes.User do
     field :stackoverflow_id, :string
     field :twitter_id, :string
     field :blog_url, :string
-    has_many :quotes, DevQuotes.Quote
-
     timestamps()
   end
 

@@ -20,7 +20,6 @@ defmodule DevQuotes.Router do
     get "/", UserController, :index
     get "/about", PageController, :about
     resources "/users", UserController, except: [:delete, :new, :create]
-    resources "/data_sources", DataSourceController
   end
 
   scope "/" do

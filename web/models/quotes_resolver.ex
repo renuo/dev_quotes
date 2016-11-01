@@ -1,10 +1,9 @@
 defmodule QuotesResolver do
   @moduledoc false
 
-  def resolve(data_source) do
-    case {data_source.type} do
-      {"stackoverflow"} ->
-        StackoverflowResolver.resolve(data_source.data)
-    end
+  def resolve(user) do
+    DevQuotes.StackoverflowAdapter.resolve(user.stackoverflow_id) ++
+    DevQuotes.TwitterAdapter.resolve(user.twitter_id) ++
+    DevQuotes.GitHubAdapter.resolve(user.github_id)
   end
 end
