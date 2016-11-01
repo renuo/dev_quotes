@@ -4,7 +4,8 @@ defmodule DevQuotes.GitHubAdapter do
   end
 
   def resolve(username) do
-    [%{icon: "https://goo.gl/AK5zl7", body: latest_event(username)}]
+    latest_events(username)
+      |> Enum.map(fn(x) -> %{icon: "https://goo.gl/AK5zl7", body: x} end)
   end
 
   def convert_event(username, event) do
