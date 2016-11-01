@@ -24,6 +24,7 @@ Dir.chdir APP_ROOT do
     system 'mix deps.get'
     system 'mix ecto.create'
     system 'mix ecto.migrate || echo "no migrations yet"'
+    system 'mix run priv/repo/seeds.exs'
   end
 
   run 'Creating pre-commit hook link', '.git/hooks/pre-commit' do
