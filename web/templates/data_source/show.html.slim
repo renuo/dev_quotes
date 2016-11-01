@@ -14,14 +14,12 @@ ul
 
   img src="#{@quotes[:user]["profile_image"]}"
 
+
+  = for question <-@quotes[:questions] do
+    = render "_quote.html", icon: "https://goo.gl/NiD4Re", body: question["body"]
+
   = for answer <- @quotes[:answers] do
-    .panel.panel-default
-      .panel-body
-        .row
-          .col-xs-1
-            img.img-responsive src="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&a"
-          .col-xs-11
-            = raw answer["body"]
+    = render "_quote.html", icon: "https://goo.gl/NiD4Re", body: answer["body"]
 
 = link "Edit", to: data_source_path(@conn, :edit, @data_source)
 = link "Back", to: data_source_path(@conn, :index)

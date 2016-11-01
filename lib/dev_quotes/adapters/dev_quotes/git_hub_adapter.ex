@@ -23,7 +23,7 @@ defmodule DevQuotes.GitHubAdapter do
   end
 
   defp client do
-    token = Application.fetch_env!(:dev_quotes, :access_token)
+    token = Application.fetch_env!(:dev_quotes, :github_access_token)
     Tentacat.Client.new(%{access_token: token})
   end
 end

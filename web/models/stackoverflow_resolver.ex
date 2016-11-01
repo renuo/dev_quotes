@@ -3,7 +3,8 @@ defmodule StackoverflowResolver do
 
   def resolve(stackoverflow_id) do
     %{"user": user(stackoverflow_id),
-      "answers": answers(stackoverflow_id)}
+      "answers": answers(stackoverflow_id),
+      "questions": questions(stackoverflow_id)}
   end
 
   defp user(stackoverflow_id) do
@@ -14,10 +15,14 @@ defmodule StackoverflowResolver do
     get("users/#{stackoverflow_id}/answers", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"]
   end
 
+  defp questions(stackoverflow_id) do
+    get("users/#{stackoverflow_id}/questions", %{sort: "votes", page: 1, pagesize: 10, filter: "withbody"})["items"]
+  end
+
   defp get(path, params) do
     parse(HTTPotion.get("https://api.stackexchange.com/2.2/#{path}",
         query: Map.merge(%{site: "stackoverflow",
-                           key: Application.get_env(:dev_quotes, :stackoverflow_api_key)},
+                           key: Application.fetch_env!(:dev_quotes, :stackoverflow_api_key)},
                          params)))
   end
 
