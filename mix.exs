@@ -39,6 +39,8 @@ defmodule DevQuotes.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
+     {:addict, "~> 0.3"},
+     {:mailgun, github: "chrismccord/mailgun", branch: "master", override: true},
      {:httpotion, "~> 3.0.2"},
      {:json, "~> 1.0"}]
   end
