@@ -10,7 +10,7 @@ defmodule StackoverflowResolver do
       "answers":
          elem(JSON.decode(:zlib.gunzip(
                          HTTPotion.get("https://api.stackexchange.com/2.2/users/#{data_source.data}/answers",
-                                       query: %{sort: "votes", site: "stackoverflow", key: "HtNWsT)iyWqWfTWuSZ*14g(("}).body)),
+                                       query: %{sort: "votes", site: "stackoverflow", key: data_source.key}).body)),
               1)["items"]}
   end
 end
