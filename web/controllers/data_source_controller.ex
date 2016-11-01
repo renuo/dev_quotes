@@ -28,7 +28,7 @@ defmodule DevQuotes.DataSourceController do
 
   def show(conn, %{"id" => id}) do
     data_source = Repo.get!(DataSource, id)
-    render(conn, "show.html", data_source: data_source, fetched_data: DataSourceResolver.resolve(data_source))
+    render(conn, "show.html", data_source: data_source, quotes: QuotesResolver.resolve(data_source))
   end
 
   def edit(conn, %{"id" => id}) do
