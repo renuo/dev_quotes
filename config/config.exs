@@ -31,7 +31,7 @@ import_config "#{Mix.env}.exs"
 import_config "secret.exs"
 
 config :addict,
-  secret_key: "2432622431322452525235446f416f5949305062637a30416f7044444f",
+  secret_key: Application.get_env(:dev_quotes, :addict_secret),
   extra_validation: fn ({valid, errors}, user_params) -> {valid, errors} end, # define extra validation here
   user_schema: DevQuotes.User,
   repo: DevQuotes.Repo,
