@@ -10,7 +10,10 @@ defmodule DevQuotes.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps(),
+     preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+     ]]
   end
 
   # Configuration for the OTP application.
@@ -19,7 +22,7 @@ defmodule DevQuotes.Mixfile do
   def application do
     [mod: {DevQuotes, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :tentacat, :httpotion]]
+                    :phoenix_ecto, :postgrex, :httpotion, :tentacat]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,6 +43,7 @@ defmodule DevQuotes.Mixfile do
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
      {:tentacat, "~> 0.5"},
+     {:exvcr, "~> 0.7", only: :test},
      {:addict, "~> 0.3"},
      {:mailgun, github: "chrismccord/mailgun", branch: "master", override: true},
      {:httpotion, "~> 3.0.2"},
