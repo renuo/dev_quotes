@@ -5,7 +5,10 @@ otp_release:
   - 18.2.1
 addons:
   postgresql: '9.4'
-before_script:
+cache:
+  directories:
+  - node_modules
+before_install:
   - cp config/secret.exs.example config/secret.exs
 script:
   - bin/check
