@@ -19,6 +19,9 @@ defmodule DevQuotes.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+  end
+
+  scope "/" do
     addict :routes
   end
 
