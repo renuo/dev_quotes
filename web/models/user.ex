@@ -4,6 +4,7 @@ defmodule DevQuotes.User do
   schema "users" do
     field :email, :string
     field :encrypted_password, :string
+    has_many :quotes, DevQuotes.Quote
 
     timestamps()
   end
