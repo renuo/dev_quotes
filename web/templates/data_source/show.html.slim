@@ -1,0 +1,27 @@
+h2 Show data source
+
+ul
+  li
+    strong Type:
+    = @data_source.type
+
+  li
+    strong Key:
+    = @data_source.key
+  li
+    strong Data:
+    = @data_source.data
+
+  img src="#{@quotes[:user]["profile_image"]}"
+
+  = for answer <- @quotes[:answers] do
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-1
+            img.img-responsive src="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&a"
+          .col-xs-11
+            = raw answer["body"]
+
+= link "Edit", to: data_source_path(@conn, :edit, @data_source)
+= link "Back", to: data_source_path(@conn, :index)

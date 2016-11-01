@@ -19,6 +19,7 @@ defmodule DevQuotes.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+    resources "/data_sources", DataSourceController
   end
 
   scope "/" do
