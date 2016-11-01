@@ -1,0 +1,30 @@
+<h2>Listing data sources</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Key</th>
+      <th>Data</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for data_source <- @data_sources do %>
+    <tr>
+      <td><%= data_source.type %></td>
+      <td><%= data_source.key %></td>
+      <td><%= data_source.data %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: data_source_path(@conn, :show, data_source), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: data_source_path(@conn, :edit, data_source), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: data_source_path(@conn, :delete, data_source), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New data source", to: data_source_path(@conn, :new) %>
