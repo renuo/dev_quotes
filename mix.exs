@@ -10,7 +10,10 @@ defmodule DevQuotes.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps(),
+     preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+     ]]
   end
 
   # Configuration for the OTP application.
@@ -39,7 +42,8 @@ defmodule DevQuotes.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
-     {:tentacat, "~> 0.5"}]
+     {:tentacat, "~> 0.5"},
+     {:exvcr, "~> 0.7", only: :test}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
