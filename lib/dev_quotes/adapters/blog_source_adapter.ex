@@ -5,7 +5,15 @@ defmodule DevQuotes.BlogSourceAdapter do
     #articles = get_articles(page_body)
     #links = get_local_links(page_body, blog_url)
 
-    Floki.find(page_body, "li") |> Floki.raw_html |> HtmlSanitizeEx.strip_tags
+    text = Floki.find(page_body, "li")
+    |> Floki.raw_html
+    |> HtmlSanitizeEx.strip_tags
+
+    # TODO: out of bound
+    start_point = :rand.uniform(String.length(text)) - 50
+    end_point = start_point + 50
+
+    String.slice(text, start_point..end_point)
   end
 
   def html(blog_url) do
