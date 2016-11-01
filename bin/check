@@ -1,16 +1,3 @@
-#!/usr/bin/env ruby
-require 'pathname'
+#!/usr/bin/env zsh
 
-APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
-
-def run(name, file_which_must_not_exist = nil)
-  unless file_which_must_not_exist && File.exist?(file_which_must_not_exist)
-    puts "== #{name} =="
-    yield
-    puts
-  end
-end
-
-Dir.chdir APP_ROOT do
-  system('echo todo')
-end
+mix test
