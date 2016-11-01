@@ -1,5 +1,10 @@
 <div class="jumbotron">
-  <h3>Hello</h3>
+  <h3>Users</h3>
+
+  <%= for user <- @users do %>
+    <%= render "user_list_item.html", user: user %>
+  <% end %>
+
 </div>
 
 <div class="row marketing">
