@@ -43,7 +43,7 @@
     <footer class="footer">
       <div class="container">
         <p class="text-muted">
-          <%= link("Home", to: page_path(@conn, :index)) %>
+          <%= link("Home", to: user_path(@conn, :index)) %>
           <%= link("About", to: page_path(@conn, :about)) %>
         </p>
       </div>
