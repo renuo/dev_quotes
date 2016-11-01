@@ -16,6 +16,10 @@ Dir.chdir APP_ROOT do
     system 'npm install'
   end
 
+  run 'Copying config', 'config/secret.exs' do
+    system 'cp config/secret.exs.example config/secret.exs'
+  end
+
   run 'Installing phoenix dependencies' do
     system 'mix deps.get'
     system 'mix ecto.create'

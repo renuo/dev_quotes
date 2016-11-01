@@ -22,6 +22,6 @@ defmodule StackoverflowResolver do
   end
 
   defp parse(response) do
-    elem(JSON.decode(:zlib.gunzip(response.body)), 1)
+    JSON.decode!(:zlib.gunzip(response.body))
   end
 end

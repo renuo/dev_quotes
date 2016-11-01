@@ -2,7 +2,7 @@ defmodule DevQuotes.DataSourceControllerTest do
   use DevQuotes.ConnCase
 
   alias DevQuotes.DataSource
-  @valid_attrs %{data: "837638", key: "HtNWsT)iyWqWfTWuSZ*14g((", type: "stackoverflow"}
+  @valid_attrs %{data: "837638", key: "hello", type: "stackoverflow"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -27,7 +27,7 @@ defmodule DevQuotes.DataSourceControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    data_source = Repo.insert! %DataSource{data: "837638", key: "HtNWsT)iyWqWfTWuSZ*14g((", type: "stackoverflow"}
+    data_source = Repo.insert! %DataSource{data: "837638", key: "hello", type: "stackoverflow"}
     conn = get conn, data_source_path(conn, :show, data_source)
     assert html_response(conn, 200) =~ "Show data source"
   end
