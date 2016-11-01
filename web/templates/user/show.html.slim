@@ -1,6 +1,7 @@
 .jumbotron
   h3 = @user.email
-
+  = link "Edit", to: user_path(@conn, :edit, @user.id)
+    
 = for quote <- @user.quotes do
   .media
     .media-left
