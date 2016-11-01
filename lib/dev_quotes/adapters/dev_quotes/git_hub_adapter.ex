@@ -7,12 +7,19 @@ defmodule DevQuotes.GitHubAdapter do
     [%{icon: "https://goo.gl/AK5zl7", body: latest_event(username)}]
   end
 
-  def latest_event(username) do
-    events = Tentacat.Users.Events.list(username, client)
-    event = Enum.find(events, fn(x) -> convertable_event?(x) end)
-
+  def convert_event(username, event) do
     repo = event["repo"]["name"]
     "#{username} pushed to #{repo}, see <a href='#{extract_link(event)}'>here</a>"
+  end
+
+  def latest_events(username) do
+    Tentacat.Users.Events.list(username, client)
+      |> Enum.filter(fn(x) -> convertable_event?(x) end)
+      |> Enum.map(fn(x) -> convert_event(username, x) end)
+  end
+
+  def latest_event(username) do
+    latest_events(username) |> List.first
   end
 
   defp extract_link(event) do
