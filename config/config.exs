@@ -29,3 +29,11 @@ config :phoenix, :template_engines,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
 import_config "secret.exs"
+
+config :addict,
+  secret_key: Application.get_env(:dev_quotes, :addict_secret),
+  extra_validation: fn ({valid, errors}, user_params) -> {valid, errors} end, # define extra validation here
+  user_schema: DevQuotes.User,
+  repo: DevQuotes.Repo,
+  from_email: "no-reply@example.com", # CHANGE THIS
+  mail_service: nil
