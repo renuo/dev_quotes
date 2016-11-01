@@ -1,21 +1,29 @@
-<div class="jumbotron">
-  <h3><%= @user.email %></h3>
-  <%= link "Edit", to: user_path(@conn, :edit, @user.id) %>
+<%= form_for @changeset, user_path(@conn, :update, @user), fn f -> %>
+<div class="form-group">
+  <label>
+    Github ID: <%= text_input f, :github_id, class: "form-control" %>
+  </label>
 </div>
+<div class="form-group">
+  <label>
+    Stackoverflow ID: <%= text_input f, :stackoverflow_id, class: "form-control" %>
+  </label>
+  </div>
+  <div class="form-group">
+  <label>
+    Twitter ID: <%= text_input f, :twitter_id, class: "form-control" %>
+  </label>
+  </div>
+  <div class="form-group">
+  <label>
+    Blog URL: <%= text_input f, :blog_url, class: "form-control" %>
+  </label>
+  </div>
 
-<%= for quote <- @user.quotes do %>
 
-<div class="media">
-<div class="media-left">
-  <a href="#">
-    <img class="media-object" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThZ6E3ROljwFW6EMnB5jFQYYSNacooNbx0HLeLPfjyWof6ZH0D">
-  </a>
-</div>
-<div class="media-body">
-  <%= render "quote_list_item.html", quote: quote %>
-</div>
-</div>
+  <%= submit "Submit", class: "btn btn-default" %>
 <% end %>
+
 
 <div class="row marketing">
   <div class="col-lg-6">

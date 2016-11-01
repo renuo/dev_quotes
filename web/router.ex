@@ -17,10 +17,9 @@ defmodule DevQuotes.Router do
   scope "/", DevQuotes do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
+    get "/", UserController, :index
     get "/about", PageController, :about
+    resources "/users", UserController, except: [:delete, :new, :create]
     resources "/data_sources", DataSourceController
   end
 

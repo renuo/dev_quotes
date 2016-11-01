@@ -4,6 +4,10 @@ defmodule DevQuotes.User do
   schema "users" do
     field :email, :string
     field :encrypted_password, :string
+    field :github_id, :string
+    field :stackoverflow_id, :string
+    field :twitter_id, :string
+    field :blog_url, :string
     has_many :quotes, DevQuotes.Quote
 
     timestamps()
@@ -14,7 +18,8 @@ defmodule DevQuotes.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:email, :encrypted_password])
+    |> cast(params, [:email, :encrypted_password, :github_id, :stackoverflow_id,
+                      :twitter_id, :blog_url])
     |> validate_required([:email, :encrypted_password])
   end
 end
