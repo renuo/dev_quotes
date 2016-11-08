@@ -39,3 +39,5 @@ config :dev_quotes, DevQuotes.Repo,
   database: "dev_quotes_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "secret.exs"

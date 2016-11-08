@@ -13,7 +13,8 @@ use Mix.Config
 # which you typically run after static files are built.
 config :dev_quotes, DevQuotes.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "pacific-citadel-12863.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
@@ -55,3 +56,13 @@ config :logger, level: :info
 #
 #     config :dev_quotes, DevQuotes.Endpoint, server: true
 #
+
+# Configure your database
+config :dev_quotes, DevQuotes.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
+
+
+import_config "prod.secret.exs"

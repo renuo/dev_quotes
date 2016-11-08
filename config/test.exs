@@ -15,3 +15,5 @@ config :dev_quotes, DevQuotes.Repo,
   database: "dev_quotes_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "secret.exs"
