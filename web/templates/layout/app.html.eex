@@ -20,6 +20,7 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
+            <li><%= link("About", to: page_path(@conn, :about)) %></li>
             <%= if Addict.Helper.is_logged_in(@conn) do %>
               <li><a href="#" class='logout-link'>Logout</a></li>
             <% else %>
@@ -40,14 +41,6 @@
 
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">
-          <%= link("Home", to: user_path(@conn, :index)) %>
-          <%= link("About", to: page_path(@conn, :about)) %>
-        </p>
-      </div>
-    </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 
     <script type='text/javascript'>
