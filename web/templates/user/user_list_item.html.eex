@@ -1,0 +1,1 @@
+<p><%= link @user.email, to: "/users/#{@user.id}" %></p>

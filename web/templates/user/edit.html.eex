@@ -1,6 +1,28 @@
-<div class="jumbotron">
-  <h3>Hello</h3>
+<%= form_for @changeset, user_path(@conn, :update, @user), fn f -> %>
+<div class="form-group">
+  <label>
+    Github ID: <%= text_input f, :github_id, class: "form-control" %>
+  </label>
 </div>
+<div class="form-group">
+  <label>
+    Stackoverflow ID: <%= text_input f, :stackoverflow_id, class: "form-control" %>
+  </label>
+  </div>
+  <div class="form-group">
+  <label>
+    Twitter ID: <%= text_input f, :twitter_id, class: "form-control" %>
+  </label>
+  </div>
+  <div class="form-group">
+  <label>
+    Blog URL: <%= text_input f, :blog_url, class: "form-control" %>
+  </label>
+  </div>
+
+  <%= submit "Submit", class: "btn btn-default" %>
+<% end %>
+
 
 <div class="row marketing">
   <div class="col-lg-6">

@@ -1,0 +1,6 @@
+.jumbotron
+  h3 = @user.email
+  = link "Edit", to: user_path(@conn, :edit, @user.id)
+
+= for quote <- @quotes do
+  = render "_quote.html", quote: quote

@@ -1,4 +1,4 @@
-defmodule DevQuotes.PageView do
+defmodule DevQuotes.UserView do
   use DevQuotes.Web, :view
 
 end

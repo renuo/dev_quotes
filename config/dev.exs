@@ -22,7 +22,7 @@ config :dev_quotes, DevQuotes.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{web/templates/.*(eex|slim)$}
     ]
   ]
 
@@ -39,3 +39,5 @@ config :dev_quotes, DevQuotes.Repo,
   database: "dev_quotes_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "secret.exs"

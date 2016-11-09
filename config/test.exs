@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :dev_quotes, DevQuotes.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "dev_quotes_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "secret.exs"
